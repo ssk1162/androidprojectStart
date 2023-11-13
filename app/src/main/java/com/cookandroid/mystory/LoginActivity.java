@@ -1,10 +1,6 @@
 package com.cookandroid.mystory;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity {
 
     EditText username1, password1;
-    Button btnLogin, btnJoin;
+    Button btnLogin, btnJoin, idpwbtn;
     DBHelper db;
 
     @Override
@@ -29,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         password1 = findViewById(R.id.password1);
         btnLogin = findViewById(R.id.btnLogin);
         btnJoin = findViewById(R.id.btnJoin);
+        idpwbtn = findViewById(R.id.idpwbtn);
         db = new DBHelper(this);
 
         // 로그인
@@ -55,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     intent.putExtra("user", user);
                     Toast.makeText(getApplicationContext(), user + "님 환영합니다", Toast.LENGTH_SHORT).show();
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                     finish();
 
@@ -69,9 +65,18 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(), "회원가입", Toast.LENGTH_SHORT).show();
-
                 Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        idpwbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), FindidpwActivity.class);
                 startActivity(intent);
                 finish();
 

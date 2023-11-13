@@ -16,17 +16,10 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/btnJoinGo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인"/>
-
-        <Button
             android:id="@+id/btnLogOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="로그아웃"
-            android:visibility="gone"/>
+            android:text="로그아웃"/>
 
 
     </LinearLayout>

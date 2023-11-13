@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnJoinGo, btnLogOut;
+    Button btnLogOut;
     TextView viewt;
 
     @Override
@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("메인");
 
-        btnJoinGo = findViewById(R.id.btnJoinGo);
         btnLogOut = findViewById(R.id.btnLogOut);
         viewt = findViewById(R.id.viewt);
 
@@ -29,19 +28,6 @@ public class MainActivity extends AppCompatActivity {
         String message = msg.getStringExtra("user");
 
         viewt.setText(message);
-
-        btnJoinGo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(), "클릭함", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
-
-            }
-        });
 
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
 
 
 
