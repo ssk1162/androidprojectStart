@@ -60,9 +60,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from users where username = ?", new String[]{username});
         while (cursor.moveToNext()) {
-
             Log.d("되냐?", cursor.getString(1));
-
         }
 
     }
