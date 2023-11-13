@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         btnJoin = findViewById(R.id.btnJoin);
         db = new DBHelper(this);
 
+        // 로그인
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -41,20 +42,29 @@ public class LoginActivity extends AppCompatActivity {
 
                 Boolean userlogin = db.checkusernamepassowrd(user, pass);
 
-                if (userlogin == false) {
-                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                if (user.equals("") || pass.equals("")) {
+
+                    Toast.makeText(LoginActivity.this, "빈칸이 있습니다", Toast.LENGTH_SHORT).show();
+
+                } else if (userlogin == false) {
+
+                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+
+                } else if (userlogin == true) {
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtra("user", user);
+                    Toast.makeText(getApplicationContext(), user + "님 환영합니다", Toast.LENGTH_SHORT).show();
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                     finish();
 
-                } else {
-                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
 
+        // 회원가입
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

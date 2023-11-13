@@ -30,6 +30,7 @@ public class JoinActivity extends AppCompatActivity {
         btnClick = findViewById(R.id.btnClick);
         btnPwClick = findViewById(R.id.btnPwClick);
         emailEdit = findViewById(R.id.emailEdit);
+        db = new DBHelper(this);
 
 //      중복 확인
         btnClick.setOnClickListener(new View.OnClickListener() {
@@ -109,17 +110,22 @@ public class JoinActivity extends AppCompatActivity {
 
                 } else {
 
-                    Boolean insertDate = db.checkusernamepassowrd(username.getText().toString(), password.getText().toString());
-                    if (insertDate == false) {
+                    String user = username.getText().toString();
+                    String pass = password.getText().toString();
+                    String email = emailEdit.getText().toString();
+
+                    Boolean insert = db.insertDate(user, pass, email);
+
+                    if (insert == false) {
+
+                        Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
+
+                    } else if (insert == true) {
 
                         Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                         finish();
-
-                    } else {
-
-                        Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
 
                     }
 
