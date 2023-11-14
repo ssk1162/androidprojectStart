@@ -58,27 +58,27 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<UserBean> selectpw(String username) {
-
-        List<UserBean> result = new ArrayList<>();
+    public UserBean selectpw(String username) {
 
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from users where username = ?", new String[]{username});
 
+        UserBean userBean = new UserBean();
+
         while (cursor.moveToNext()) {
 
-            UserBean userBean = new UserBean();
+            if (!cursor.getString(0).equals(null)) {
 
-            userBean.setUsername(cursor.getString(0));
-            userBean.setPassword(cursor.getString(1));
-            userBean.setEmailEdit(cursor.getString(2));
+                userBean.setUsername(cursor.getString(0));
+                userBean.setPassword(cursor.getString(1));
+                userBean.setEmailEdit(cursor.getString(2));
 
-            result.add(userBean);
+            }
 
         }
 
-        return result;
+        return userBean;
 
     }
 

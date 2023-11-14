@@ -2,10 +2,12 @@ package com.cookandroid.mystory;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,16 +39,20 @@ public class FindidpwActivity extends AppCompatActivity {
                 String name = null;
                 String pass = null;
                 String user = username2.getText().toString();
-                List<UserBean> list = db.selectpw(user);
+                UserBean userBean = db.selectpw(user);
 
-                for (int i = 0; i < list.size(); i++) {
+                name = userBean.getUsername();
+                pass = userBean.getPassword();
 
-                    name = list.get(i).getUsername();
-                    pass = list.get(i).getPassword();
+                if (name == null) {
+
+                    pwview.setText("아이디를 찾을 수 없습니다");
+
+                } else {
+
+                    pwview.setText(name + "님 비밀번호는 " + pass + "입니다");
 
                 }
-
-                pwview.setText(name + "님 비밀번호는 " + pass + "입니다");
 
             }
         });
