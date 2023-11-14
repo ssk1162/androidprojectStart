@@ -1,21 +1,21 @@
 package com.cookandroid.mystory;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 public class FindidpwActivity extends AppCompatActivity {
 
     TextView pwview;
     EditText username2;
-    Button namebtn;
+    Button namebtn, btnBack2;
     DBHelper db;
 
     @Override
@@ -26,6 +26,7 @@ public class FindidpwActivity extends AppCompatActivity {
 
         pwview = findViewById(R.id.pwview);
         namebtn = findViewById(R.id.namebtn);
+        btnBack2 = findViewById(R.id.btnBack2);
         username2 = findViewById(R.id.username2);
         db = new DBHelper(this);
 
@@ -33,14 +34,33 @@ public class FindidpwActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                String name = null;
+                String pass = null;
                 String user = username2.getText().toString();
-                db.selectpw(user);
-                Intent intent = new Intent();
-                pwview.setText(intent.getStringExtra("pass"));
+                List<UserBean> list = db.selectpw(user);
+
+                for (int i = 0; i < list.size(); i++) {
+
+                    name = list.get(i).getUsername();
+                    pass = list.get(i).getPassword();
+
+                }
+
+                pwview.setText(name + "님 비밀번호는 " + pass + "입니다");
 
             }
         });
 
+        btnBack2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
 
     }

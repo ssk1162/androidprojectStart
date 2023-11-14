@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
@@ -55,13 +58,27 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void selectpw(String username) {
+    public List<UserBean> selectpw(String username) {
+
+        List<UserBean> result = new ArrayList<>();
+
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from users where username = ?", new String[]{username});
+
         while (cursor.moveToNext()) {
-            Log.d("되냐?", cursor.getString(1));
+
+            UserBean userBean = new UserBean();
+
+            userBean.setUsername(cursor.getString(0));
+            userBean.setPassword(cursor.getString(1));
+            userBean.setEmailEdit(cursor.getString(2));
+
+            result.add(userBean);
+
         }
+
+        return result;
 
     }
 
