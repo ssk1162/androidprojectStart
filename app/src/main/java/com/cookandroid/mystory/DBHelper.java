@@ -60,7 +60,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public UserBean selectpw(String username) {
 
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from users where username = ?", new String[]{username});
 
