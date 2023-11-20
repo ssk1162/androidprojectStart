@@ -13,8 +13,6 @@ public class IntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro_activity);
 
-        getSupportActionBar().hide();
-
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

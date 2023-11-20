@@ -1,11 +1,9 @@
 package com.cookandroid.mystory;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,24 +14,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class HomeFragment extends Fragment {
-
-    MainActivity activity;
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        activity = (MainActivity) getActivity();
-
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-
-        activity = null;
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,9 +33,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                Intent intent = new Intent(getContext(), ItemActivity.class);
+                intent.putExtra("data", list.getItem(i));
+                startActivity(intent);
 
-
-                Toast.makeText(getActivity(), (i + 1) + "번째 클릭", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), list.getItem(i)+ " 클릭", Toast.LENGTH_SHORT).show();
 
             }
         });
