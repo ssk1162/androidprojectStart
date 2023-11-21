@@ -15,24 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnLogOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="로그아웃"
-            tools:layout_editor_absoluteX="323dp"
-            tools:layout_editor_absoluteY="2dp" />
-
-        <TextView
-            android:id="@+id/viewt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:hint="닉네임"
-            tools:layout_editor_absoluteX="284dp"
-            tools:layout_editor_absoluteY="16dp" />
-
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout

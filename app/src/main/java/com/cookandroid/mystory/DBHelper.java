@@ -75,7 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public Boolean checkusername(String username) {
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from users where username=?", new String[]{username});
+        Cursor cursor = db.rawQuery("select username from users where username=?", new String[]{username});
         if (cursor.getCount() > 0) {
             return true;
         } else {
@@ -88,7 +88,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public UserBean selectpw(String username) {
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from users where username = ?", new String[]{username});
+        Cursor cursor = db.rawQuery("select password from users where username = ?", new String[]{username});
 
         UserBean userBean = new UserBean();
 

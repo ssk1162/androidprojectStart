@@ -1,6 +1,7 @@
 package com.cookandroid.mystory;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username1, password1;
     Button btnLogin, btnJoin, idpwbtn;
     DBHelper db;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
         btnJoin = findViewById(R.id.btnJoin);
         idpwbtn = findViewById(R.id.idpwbtn);
         db = new DBHelper(this);
+
+        preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
 
         // 로그인
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -49,9 +53,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else if (userlogin == true) {
 
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("user", user);
+                    editor.commit();
+
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.putExtra("user", user);
-                    Toast.makeText(getApplicationContext(), user + "님 환영합니다", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                     finish();
 
