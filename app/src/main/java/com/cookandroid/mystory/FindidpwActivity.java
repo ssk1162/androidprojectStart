@@ -35,7 +35,7 @@ public class FindidpwActivity extends AppCompatActivity {
                 String name = null;
                 String pass = null;
                 String user = username2.getText().toString();
-                UserBean userBean = db.selectpw(user);
+                UserBean userBean = db.selectAll(user);
 
                 name = userBean.getUsername();
                 pass = userBean.getPassword();

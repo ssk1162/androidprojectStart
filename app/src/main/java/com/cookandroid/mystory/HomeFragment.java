@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
 
         ListView listview = view.findViewById(R.id.listview);
 
-        String[] item = {"원","투","쓰리","포"};
+        String[] item = {"원","투","쓰리","포","원","투","쓰리","포","원","투","쓰리","포","원","투","쓰리","포","원","투","쓰리","포"};
 
         ArrayAdapter<String> list = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, item);
 

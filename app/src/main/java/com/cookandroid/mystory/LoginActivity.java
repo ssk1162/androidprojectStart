@@ -54,7 +54,9 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (userlogin == true) {
 
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("user", user);
+                    UserBean userBean = db.selectAll(user);
+                    editor.putString("user", userBean.getUsername());
+                    editor.putString("email", userBean.getEmailEdit());
                     editor.commit();
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);

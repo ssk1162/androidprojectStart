@@ -2,14 +2,9 @@ package com.cookandroid.mystory;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -84,11 +79,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    // 비밀번호 찾기
-    public UserBean selectpw(String username) {
+    // 마이페이지 / 비밀번호 찾기
+    public UserBean selectAll(String username) {
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select password from users where username = ?", new String[]{username});
+        Cursor cursor = db.rawQuery("select * from users where username = ?", new String[]{username});
 
         UserBean userBean = new UserBean();
 
