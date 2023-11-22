@@ -2,7 +2,6 @@ package com.cookandroid.mystory;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 
