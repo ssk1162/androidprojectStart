@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".UserFragment">
+    tools:context=".fragment.UserFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -13,36 +13,37 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/usertv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:text="아이디"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/emailtv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/emailtv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnlogout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usertv" />
+
+        <Button
+            android:id="@+id/btnlogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="로그아웃"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/usertv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="아이디"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/emailtv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="이메일"
-                android:textSize="20dp" />
-
-            <Button
-                android:id="@+id/btnlogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="로그아웃" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/emailtv" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

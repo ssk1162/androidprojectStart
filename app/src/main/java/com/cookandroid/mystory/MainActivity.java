@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
+import com.cookandroid.mystory.fragment.HomeFragment;
+import com.cookandroid.mystory.fragment.SaveFragment;
+import com.cookandroid.mystory.fragment.SelectFragment;
+import com.cookandroid.mystory.fragment.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 

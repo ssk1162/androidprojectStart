@@ -1,4 +1,4 @@
-package com.cookandroid.mystory;
+package com.cookandroid.mystory.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.cookandroid.mystory.LoginActivity;
+import com.cookandroid.mystory.MainActivity;
+import com.cookandroid.mystory.R;
 
 public class UserFragment extends Fragment {
 
@@ -49,7 +53,6 @@ public class UserFragment extends Fragment {
 
             }
         });
-
 
         return view;
     }

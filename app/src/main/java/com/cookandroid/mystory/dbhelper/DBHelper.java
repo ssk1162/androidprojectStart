@@ -1,10 +1,12 @@
-package com.cookandroid.mystory;
+package com.cookandroid.mystory.dbhelper;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.cookandroid.mystory.UserBean;
 
 public class DBHelper extends SQLiteOpenHelper {
 

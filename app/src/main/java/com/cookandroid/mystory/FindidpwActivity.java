@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cookandroid.mystory.dbhelper.DBHelper;
+
 public class FindidpwActivity extends AppCompatActivity {
 
     TextView pwview;

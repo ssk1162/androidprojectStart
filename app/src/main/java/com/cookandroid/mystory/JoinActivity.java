@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cookandroid.mystory.dbhelper.DBHelper;
+
 public class JoinActivity extends AppCompatActivity {
 
     Button btnBack, btnGo;

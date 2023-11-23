@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cookandroid.mystory.dbhelper.DBHelper;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText username1, password1;
