@@ -18,7 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create Table users(username TEXT primary key, password TEXT, emailEdit TEXT)");
+        db.execSQL("create Table users(username TEXT primary key, password TEXT, nickname TEXT, emailEdit TEXT)");
 
 //        db.execSQL("create Table imageitem(imagenum integer primary key, imagename TEXT, imagepay integer, imagedetail TEXT)");
 
@@ -33,12 +33,13 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // 회원가입
-    public Boolean insertDate(String username, String password, String emailEdit) {
+    public Boolean insertDate(String username, String password, String nickname, String emailEdit) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
         contentValues.put("password", password);
+        contentValues.put("nickname", nickname);
         contentValues.put("emailEdit", emailEdit);
 
         long result = db.insert("users", null, contentValues);
@@ -95,7 +96,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 userBean.setUsername(cursor.getString(0));
                 userBean.setPassword(cursor.getString(1));
-                userBean.setEmailEdit(cursor.getString(2));
+                userBean.setNickname(cursor.getString(2));
+                userBean.setEmailEdit(cursor.getString(3));
 
             }
 
@@ -119,7 +121,20 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    // 비밀번호 변경
+    // 닉네임 변경
+    public Boolean changenick(String username, String password, String nickname) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("update users set nickname = ? where username = ? and password = ?", new String[]{username, password, nickname});
+
+        if (cursor.getCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     public Boolean changepw(String username, String password) {
 
         SQLiteDatabase db = this.getWritableDatabase();

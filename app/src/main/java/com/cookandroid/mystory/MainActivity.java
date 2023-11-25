@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.cookandroid.mystory.fragment.HomeFragment;
+import com.cookandroid.mystory.fragment.RootFragment;
 import com.cookandroid.mystory.fragment.SaveFragment;
 import com.cookandroid.mystory.fragment.SelectFragment;
 import com.cookandroid.mystory.fragment.UserFragment;
@@ -52,9 +56,23 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
 
                 case R.id.tab_home: {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.home_ly, new HomeFragment())
-                            .commit();
+
+                    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+                    String nick = sharedPreferences.getString("nick","");
+
+                    if (nick.equals("관리자")) {
+
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.home_ly, new RootFragment())
+                                .commit();
+
+                    } else if (!nick.equals("관리자")) {
+
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.home_ly, new HomeFragment())
+                                .commit();
+
+                    }
 
                     return true;
                 }

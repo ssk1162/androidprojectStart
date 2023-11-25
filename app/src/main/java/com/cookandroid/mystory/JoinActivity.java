@@ -15,7 +15,7 @@ import com.cookandroid.mystory.dbhelper.DBHelper;
 public class JoinActivity extends AppCompatActivity {
 
     Button btnBack, btnGo;
-    EditText username, password, repassword, emailEdit;
+    EditText username, password, repassword, nickname, emailEdit;
     Button btnClick, btnPwClick;
     DBHelper db;
 
@@ -29,6 +29,7 @@ public class JoinActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         repassword = findViewById(R.id.repassword);
+        nickname = findViewById(R.id.nickname);
         btnClick = findViewById(R.id.btnClick);
         btnPwClick = findViewById(R.id.btnPwClick);
         emailEdit = findViewById(R.id.emailEdit);
@@ -110,13 +111,22 @@ public class JoinActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
 
+                }  else if (nickname.getText().toString().replace(" ", "").equals("")) {
+
+                    Toast.makeText(getApplicationContext(), "닉네임을 확인해주세요", Toast.LENGTH_SHORT).show();
+
+                }  else if (emailEdit.getText().toString().replace(" ", "").equals("")) {
+
+                    Toast.makeText(getApplicationContext(), "이메일을 확인해주세요", Toast.LENGTH_SHORT).show();
+
                 } else {
 
                     String user = username.getText().toString();
                     String pass = password.getText().toString();
+                    String nick = nickname.getText().toString();
                     String email = emailEdit.getText().toString();
 
-                    Boolean insert = db.insertDate(user, pass, email);
+                    Boolean insert = db.insertDate(user, pass, nick, email);
 
                     if (insert == false) {
 

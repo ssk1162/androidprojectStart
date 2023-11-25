@@ -17,32 +17,31 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.cookandroid.mystory.Adapter.GridViewAdapter;
+import com.cookandroid.mystory.Adapter.SliderAdapter;
 import com.cookandroid.mystory.MainActivity;
 import com.cookandroid.mystory.R;
-import com.cookandroid.mystory.Adapter.SliderAdapter;
 import com.cookandroid.mystory.SliderItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class RootFragment extends Fragment {
 
     private ViewPager2 viewPager2;
     private Handler sliderHendler = new Handler();
     private GridView gridView;
     private GridViewAdapter gridViewAdapter;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         ActionBar actionBar = ((MainActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle("메인");
+        actionBar.setTitle("관리자");
 
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_root, container, false);
 
-        viewPager2 = view.findViewById(R.id.viewPageImageSlider);
+        viewPager2 = view.findViewById(R.id.viewPageImageSlider2);
 
         sliderview();
 
@@ -65,7 +64,6 @@ public class HomeFragment extends Fragment {
                 sliderHendler.postDelayed(sliderRunnable, 3000);
             }
         });
-
 
 
         return view;

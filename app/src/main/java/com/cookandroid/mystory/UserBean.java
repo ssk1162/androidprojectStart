@@ -4,6 +4,7 @@ public class UserBean {
 
     private String username;
     private String password;
+    private String nickname;
     private String emailEdit;
 
     public String getUsername() {
@@ -22,6 +23,14 @@ public class UserBean {
         this.password = password;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     public String getEmailEdit() {
         return emailEdit;
     }
@@ -35,6 +44,7 @@ public class UserBean {
         return "UserBean{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
                 ", emailEdit='" + emailEdit + '\'' +
                 '}';
     }

@@ -14,13 +14,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/usertv"
+            android:id="@+id/nicktv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="아이디"
+            android:layout_marginTop="50dp"
+            android:text="닉네임"
             android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/emailtv"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,20 +29,22 @@
             android:id="@+id/emailtv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="이메일"
             android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnlogout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/usertv" />
+            app:layout_constraintTop_toBottomOf="@+id/nicktv" />
 
         <Button
             android:id="@+id/btnlogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="로그아웃"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailtv" />
 

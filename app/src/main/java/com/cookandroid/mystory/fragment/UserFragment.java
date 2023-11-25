@@ -21,7 +21,7 @@ import com.cookandroid.mystory.R;
 
 public class UserFragment extends Fragment {
 
-    TextView usertv, emailtv;
+    TextView nicktv, emailtv;
     Button btnlogout;
 
     @Override
@@ -33,14 +33,14 @@ public class UserFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_user, container, false);
 
-        usertv = view.findViewById(R.id.usertv);
+        nicktv = view.findViewById(R.id.nicktv);
         emailtv = view.findViewById(R.id.emailtv);
         btnlogout = view.findViewById(R.id.btnlogout);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
-        String user = sharedPreferences.getString("user","");
+        String nick = sharedPreferences.getString("nick","");
         String email = sharedPreferences.getString("email","");
-        usertv.setText("아이디 : " + user);
+        nicktv.setText("닉네임 : " + nick);
         emailtv.setText("이메일 : " + email);
 
         btnlogout.setOnClickListener(new View.OnClickListener() {
