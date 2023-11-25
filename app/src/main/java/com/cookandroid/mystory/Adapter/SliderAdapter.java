@@ -1,4 +1,4 @@
-package com.cookandroid.mystory;
+package com.cookandroid.mystory.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.cookandroid.mystory.R;
+import com.cookandroid.mystory.SliderItem;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;

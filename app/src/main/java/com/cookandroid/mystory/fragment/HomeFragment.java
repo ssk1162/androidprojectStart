@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 
 import com.cookandroid.mystory.MainActivity;
 import com.cookandroid.mystory.R;
-import com.cookandroid.mystory.SliderAdapter;
+import com.cookandroid.mystory.Adapter.SliderAdapter;
 import com.cookandroid.mystory.SliderItem;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
 
         viewPager2 = view.findViewById(R.id.viewPageImageSlider);
 
-        view();
+        sliderview();
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new MarginPageTransformer(40));
@@ -84,7 +84,7 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private void view() {
+    private void sliderview() {
         List<SliderItem> sliderItems = new ArrayList<>();
 
         sliderItems.add(new SliderItem(R.drawable.image));
