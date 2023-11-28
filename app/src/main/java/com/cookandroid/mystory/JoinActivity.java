@@ -10,79 +10,65 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cookandroid.mystory.databinding.JoinActivityBinding;
 import com.cookandroid.mystory.dbhelper.DBHelper;
 
 public class JoinActivity extends AppCompatActivity {
 
-    Button btnBack, btnGo;
-    EditText username, password, repassword, nickname, emailEdit;
-    Button btnClick, btnPwClick;
     DBHelper db;
+
+    private JoinActivityBinding binding;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.join_activity);
+        binding = JoinActivityBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         setTitle("회원가입");
 
-        btnBack = findViewById(R.id.btnBack);
-        btnGo = findViewById(R.id.btnGo);
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
-        repassword = findViewById(R.id.repassword);
-        nickname = findViewById(R.id.nickname);
-        btnClick = findViewById(R.id.btnClick);
-        btnPwClick = findViewById(R.id.btnPwClick);
-        emailEdit = findViewById(R.id.emailEdit);
         db = new DBHelper(this);
 
 //      중복 확인
-        btnClick.setOnClickListener(new View.OnClickListener() {
+        binding.btnClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                try {
+                String user = binding.username.getText().toString();
+                Boolean checkuser = db.checkusername(user);
 
-                    String user = username.getText().toString();
-                    Boolean checkuser = db.checkusername(user);
+                if (user.replace(" ", "").equals("")) {
 
-                    if (username.getText().toString().replace(" ", "").equals("")) {
+                    Toast.makeText(getApplicationContext(), "아이디 확인해주세요", Toast.LENGTH_SHORT).show();
 
-                        Toast.makeText(getApplicationContext(), "아이디 확인해주세요", Toast.LENGTH_SHORT).show();
+                } else if (checkuser == false) {
 
-                    } else if (checkuser == false) {
+                    Toast.makeText(getApplicationContext(), "아이디 사용 가능합니다", Toast.LENGTH_SHORT).show();
 
-                        Toast.makeText(getApplicationContext(), "아이디 사용 가능합니다", Toast.LENGTH_SHORT).show();
+                } else {
 
-                    } else {
-
-                        Toast.makeText(getApplicationContext(), "아이디가 중복입니다", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-
-                    Log.e("TAG", "Exception", e);
+                    Toast.makeText(getApplicationContext(), "아이디가 중복입니다", Toast.LENGTH_SHORT).show();
 
                 }
 
                 db.close();
-
             }
+
         });
 
 //      비밀번호 확인
-        btnPwClick.setOnClickListener(new View.OnClickListener() {
+        binding.btnPwClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (password.getText().toString().replace(" ", "").equals("")) {
+                String password = binding.password.getText().toString();
+                String repassword = binding.repassword.getText().toString();
+
+                if (password.replace(" ", "").equals("")) {
 
                     Toast.makeText(getApplicationContext(), "비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    if (password.getText().toString().equals(repassword.getText().toString())) {
+                    if (password.equals(repassword)) {
 
                         Toast.makeText(getApplicationContext(), "비밀번호가 같습니다", Toast.LENGTH_SHORT).show();
 
@@ -99,34 +85,34 @@ public class JoinActivity extends AppCompatActivity {
 
 //      회원가입
         db = new DBHelper(this);
-        btnGo.setOnClickListener(new View.OnClickListener() {
+        binding.btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (username.getText().toString().replace(" ", "").equals("")) {
+                String user = binding.username.getText().toString();
+                String password = binding.password.getText().toString();
+                String nickname = binding.nickname.getText().toString();
+                String emailEdit = binding.emailEdit.getText().toString();
+
+                if (user.replace(" ", "").equals("")) {
 
                     Toast.makeText(getApplicationContext(), "아이디를 확인해주세요", Toast.LENGTH_SHORT).show();
 
-                } else if (password.getText().toString().replace(" ", "").equals("")) {
+                } else if (password.replace(" ", "").equals("")) {
 
                     Toast.makeText(getApplicationContext(), "비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
 
-                }  else if (nickname.getText().toString().replace(" ", "").equals("")) {
+                } else if (nickname.replace(" ", "").equals("")) {
 
                     Toast.makeText(getApplicationContext(), "닉네임을 확인해주세요", Toast.LENGTH_SHORT).show();
 
-                }  else if (emailEdit.getText().toString().replace(" ", "").equals("")) {
+                } else if (emailEdit.replace(" ", "").equals("")) {
 
                     Toast.makeText(getApplicationContext(), "이메일을 확인해주세요", Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    String user = username.getText().toString();
-                    String pass = password.getText().toString();
-                    String nick = nickname.getText().toString();
-                    String email = emailEdit.getText().toString();
-
-                    Boolean insert = db.insertDate(user, pass, nick, email);
+                    Boolean insert = db.insertDate(user, password, nickname, emailEdit);
 
                     if (insert == false) {
 
@@ -149,7 +135,7 @@ public class JoinActivity extends AppCompatActivity {
         });
 
 //      뒤로가기
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.cookandroid.mystory.Adapter.GridViewAdapter;
 import com.cookandroid.mystory.Adapter.SliderAdapter;
 import com.cookandroid.mystory.MainActivity;
 import com.cookandroid.mystory.R;
@@ -29,8 +28,6 @@ public class RootFragment extends Fragment {
 
     private ViewPager2 viewPager2;
     private Handler sliderHendler = new Handler();
-    private GridView gridView;
-    private GridViewAdapter gridViewAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -97,6 +94,7 @@ public class RootFragment extends Fragment {
         sliderItems.add(new SliderItem(R.drawable.image3));
         sliderItems.add(new SliderItem(R.drawable.image4));
         sliderItems.add(new SliderItem(R.drawable.image5));
+        sliderItems.add(new SliderItem(R.drawable.image6));
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
 

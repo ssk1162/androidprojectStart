@@ -14,9 +14,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 
-import com.cookandroid.mystory.Adapter.GridViewAdapter;
 import com.cookandroid.mystory.MainActivity;
 import com.cookandroid.mystory.R;
 import com.cookandroid.mystory.Adapter.SliderAdapter;
@@ -29,9 +27,6 @@ public class HomeFragment extends Fragment {
 
     private ViewPager2 viewPager2;
     private Handler sliderHendler = new Handler();
-    private GridView gridView;
-    private GridViewAdapter gridViewAdapter;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,6 +94,7 @@ public class HomeFragment extends Fragment {
         sliderItems.add(new SliderItem(R.drawable.image3));
         sliderItems.add(new SliderItem(R.drawable.image4));
         sliderItems.add(new SliderItem(R.drawable.image5));
+        sliderItems.add(new SliderItem(R.drawable.image6));
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
 
@@ -106,6 +102,7 @@ public class HomeFragment extends Fragment {
         viewPager2.setClipChildren(false);
         viewPager2.setOffscreenPageLimit(3);
         viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+
     }
 
 }

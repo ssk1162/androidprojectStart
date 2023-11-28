@@ -11,38 +11,35 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cookandroid.mystory.databinding.LoginActivityBinding;
 import com.cookandroid.mystory.dbhelper.DBHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText username1, password1;
-    Button btnLogin, btnJoin, idpwbtn;
     DBHelper db;
     SharedPreferences preferences;
+
+    private LoginActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
+        binding = LoginActivityBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         setTitle("로그인");
 
-        username1 = findViewById(R.id.username1);
-        password1 = findViewById(R.id.password1);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnJoin = findViewById(R.id.btnJoin);
-        idpwbtn = findViewById(R.id.idpwbtn);
         db = new DBHelper(this);
 
         preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
 
         // 로그인
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                String user = username1.getText().toString();
-                String pass = password1.getText().toString();
+                String user = binding.username1.getText().toString();
+                String pass = binding.password1.getText().toString();
 
                 Boolean userlogin = db.checkusernamepassowrd(user, pass);
 
@@ -74,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // 회원가입
-        btnJoin.setOnClickListener(new View.OnClickListener() {
+        binding.btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -85,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        idpwbtn.setOnClickListener(new View.OnClickListener() {
+        binding.idpwbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

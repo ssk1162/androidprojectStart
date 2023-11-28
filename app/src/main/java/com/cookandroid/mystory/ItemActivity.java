@@ -10,24 +10,24 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cookandroid.mystory.databinding.ActivityItemBinding;
+
 public class ItemActivity extends AppCompatActivity {
 
-    TextView imgname, imgdetail;
+    TextView imgdetail;
     ImageView imageview;
     Button paybtn;
+    private ActivityItemBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item);
-        setTitle("상세페이지");
+        binding = ActivityItemBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        Toolbar toolbar = findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("상세페이지");
+        binding.toolBar.setTitle("상세페이지");
+        binding.toolBar.setBackInvokedCallbackEnabled(true);
 
-        imgname = findViewById(R.id.imgname);
         imgdetail = findViewById(R.id.imgdetail);
         imageview = findViewById(R.id.imageview);
         paybtn = findViewById(R.id.paybtn);
@@ -36,7 +36,7 @@ public class ItemActivity extends AppCompatActivity {
 
         String name = intent.getStringExtra("data");
 
-        imgname.setText(name);
+        binding.imgname.setText(name);
 
     }
 

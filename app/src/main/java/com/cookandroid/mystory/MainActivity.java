@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.tab_home: {
 
-                    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+                    SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
                     String nick = sharedPreferences.getString("nick", "");
 
                     if (nick.equals("관리자")) {
