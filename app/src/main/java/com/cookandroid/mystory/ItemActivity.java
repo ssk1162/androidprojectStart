@@ -15,7 +15,6 @@ import com.cookandroid.mystory.databinding.ActivityItemBinding;
 public class ItemActivity extends AppCompatActivity {
 
     TextView imgdetail;
-    ImageView imageview;
     Button paybtn;
     private ActivityItemBinding binding;
 
@@ -26,17 +25,19 @@ public class ItemActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.toolBar.setTitle("상세페이지");
-        binding.toolBar.setBackInvokedCallbackEnabled(true);
+        setSupportActionBar(binding.toolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         imgdetail = findViewById(R.id.imgdetail);
-        imageview = findViewById(R.id.imageview);
         paybtn = findViewById(R.id.paybtn);
 
         Intent intent = new Intent(this.getIntent());
 
-        String name = intent.getStringExtra("data");
+        String name = intent.getStringExtra("word");
+        int img = intent.getIntExtra("img", 0);
 
         binding.imgname.setText(name);
+        binding.imageview.setImageResource(img);
 
     }
 

@@ -1,5 +1,6 @@
 package com.cookandroid.mystory.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,11 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
+import com.cookandroid.mystory.Adapter.GridAdapter;
+import com.cookandroid.mystory.ItemActivity;
 import com.cookandroid.mystory.MainActivity;
 import com.cookandroid.mystory.R;
 import com.cookandroid.mystory.Adapter.SliderAdapter;
@@ -27,6 +32,7 @@ public class HomeFragment extends Fragment {
 
     private ViewPager2 viewPager2;
     private Handler sliderHendler = new Handler();
+    private GridView gridView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,7 +67,24 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        gridView = view.findViewById(R.id.gridview);
+        String[] numberWord = {"one","two","three","four","five","six"};
+        int[] numberImage = {R.drawable.image,R.drawable.image2,R.drawable.image3,R.drawable.image4,R.drawable.image5,R.drawable.image6};
+        GridAdapter gridAdapter = new GridAdapter(getActivity(), numberWord, numberImage);
 
+        gridView.setAdapter(gridAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(getActivity(), ItemActivity.class);
+                intent.putExtra("word", numberWord[i]);
+                intent.putExtra("img", numberImage[i]);
+                startActivity(intent);
+
+            }
+        });
 
         return view;
     }
