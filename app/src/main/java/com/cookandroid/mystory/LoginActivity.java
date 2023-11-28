@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), userBean.getNickname() + " : " + userBean.getEmailEdit(), Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
 
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
+                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
                 startActivity(intent);
                 finish();
 
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), FindidpwActivity.class);
+                Intent intent = new Intent(LoginActivity.this, FindidpwActivity.class);
                 startActivity(intent);
                 finish();
 

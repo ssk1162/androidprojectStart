@@ -47,7 +47,7 @@ public class UserFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getContext(), LoginActivity.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
                 Toast.makeText(getContext(), "클릭", Toast.LENGTH_SHORT).show();
 
