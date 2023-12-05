@@ -31,37 +31,33 @@
 
     <ImageView
         android:id="@+id/imageview"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="56dp"
         app:layout_constraintBottom_toTopOf="@+id/imgdetail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgname"/>
+        app:layout_constraintTop_toBottomOf="@+id/imgname" />
 
     <TextView
         android:id="@+id/imgdetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="280dp"
         android:gravity="center"
         android:text="mystory"
         android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/paybtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageview" />
 
     <Button
         android:id="@+id/paybtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="329dp"
+        android:layout_height="56dp"
         android:text="구매하기"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgdetail"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imgdetail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

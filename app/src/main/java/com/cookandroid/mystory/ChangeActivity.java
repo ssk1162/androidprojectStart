@@ -3,6 +3,7 @@ package com.cookandroid.mystory;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
 public class ChangeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,7 +14,6 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 
 import com.cookandroid.mystory.Adapter.SliderAdapter;
 import com.cookandroid.mystory.MainActivity;

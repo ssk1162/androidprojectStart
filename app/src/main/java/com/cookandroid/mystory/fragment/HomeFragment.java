@@ -44,18 +44,13 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         viewPager2 = view.findViewById(R.id.viewPageImageSlider);
+        gridView = view.findViewById(R.id.gridview);
 
         sliderview();
+        itemview();
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new MarginPageTransformer(40));
-        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float r = 1 - Math.abs(position);
-                page.setScaleY(0.85f + r * 0.15f);
-            }
-        });
 
         viewPager2.setPageTransformer(compositePageTransformer);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -67,24 +62,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        gridView = view.findViewById(R.id.gridview);
-        String[] numberWord = {"one","two","three","four","five","six"};
-        int[] numberImage = {R.drawable.image,R.drawable.image2,R.drawable.image3,R.drawable.image4,R.drawable.image5,R.drawable.image6};
-        GridAdapter gridAdapter = new GridAdapter(getActivity(), numberWord, numberImage);
-
-        gridView.setAdapter(gridAdapter);
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                Intent intent = new Intent(getActivity(), ItemActivity.class);
-                intent.putExtra("word", numberWord[i]);
-                intent.putExtra("img", numberImage[i]);
-                startActivity(intent);
-
-            }
-        });
 
         return view;
     }
@@ -125,6 +102,29 @@ public class HomeFragment extends Fragment {
         viewPager2.setClipChildren(false);
         viewPager2.setOffscreenPageLimit(3);
         viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+
+    }
+
+    private void itemview() {
+
+        String[] numberWord = {"one","two","three","four","five","six"};
+        int[] numberImage = {R.drawable.image,R.drawable.image2,R.drawable.image3,
+                R.drawable.image4,R.drawable.image5,R.drawable.image6};
+        GridAdapter gridAdapter = new GridAdapter(getActivity(), numberWord, numberImage);
+
+        gridView.setAdapter(gridAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(getActivity(), ItemActivity.class);
+                intent.putExtra("word", numberWord[i]);
+                intent.putExtra("img", numberImage[i]);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
