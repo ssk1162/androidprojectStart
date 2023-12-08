@@ -3,8 +3,6 @@ package com.cookandroid.mystory.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
@@ -20,7 +18,6 @@ import android.widget.GridView;
 
 import com.cookandroid.mystory.Adapter.GridAdapter;
 import com.cookandroid.mystory.ItemActivity;
-import com.cookandroid.mystory.MainActivity;
 import com.cookandroid.mystory.R;
 import com.cookandroid.mystory.Adapter.SliderAdapter;
 import com.cookandroid.mystory.SliderItem;
@@ -37,9 +34,6 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        ActionBar actionBar = ((MainActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle("메인");
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -61,7 +55,6 @@ public class HomeFragment extends Fragment {
                 sliderHendler.postDelayed(sliderRunnable, 3000);
             }
         });
-
 
         return view;
     }
@@ -107,8 +100,10 @@ public class HomeFragment extends Fragment {
 
     private void itemview() {
 
-        String[] numberWord = {"one","two","three","four","five","six"};
+        String[] numberWord = {"one","two","three","four","five","six","one","two","three","four","five","six","one","two","three","four","five","six"};
         int[] numberImage = {R.drawable.image,R.drawable.image2,R.drawable.image3,
+                R.drawable.image4,R.drawable.image5,R.drawable.image6,R.drawable.image,R.drawable.image2,R.drawable.image3,
+                R.drawable.image4,R.drawable.image5,R.drawable.image6,R.drawable.image,R.drawable.image2,R.drawable.image3,
                 R.drawable.image4,R.drawable.image5,R.drawable.image6};
         GridAdapter gridAdapter = new GridAdapter(getActivity(), numberWord, numberImage);
 

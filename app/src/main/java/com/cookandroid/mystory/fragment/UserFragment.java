@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cookandroid.mystory.LoginActivity;
-import com.cookandroid.mystory.MainActivity;
 import com.cookandroid.mystory.R;
 
 public class UserFragment extends Fragment {
@@ -27,9 +25,6 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        ActionBar actionBar = ((MainActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle("마이페이지");
 
         View view = inflater.inflate(R.layout.fragment_user, container, false);
 

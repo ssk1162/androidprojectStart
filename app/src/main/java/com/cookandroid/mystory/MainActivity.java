@@ -2,11 +2,10 @@ package com.cookandroid.mystory;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 
 import com.cookandroid.mystory.fragment.HomeFragment;
 import com.cookandroid.mystory.fragment.SaveFragment;
@@ -17,16 +16,13 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout home_ly;
+    FrameLayout home_ly;
     BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
 
         init();
         SettingListener();
