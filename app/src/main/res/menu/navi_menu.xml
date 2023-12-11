@@ -4,22 +4,22 @@
     <item
         android:id="@+id/tab_home"
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/home_18"
         android:title="홈"/>
     <item
         android:id="@+id/tab_select"
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/search_18"
         android:title="검색"/>
     <item
         android:id="@+id/tab_save"
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
-        android:title="찜하기"/>
+        android:icon="@drawable/heart_18"
+        android:title="찜목록"/>
     <item
         android:id="@+id/tab_mypage"
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/user_18"
         android:title="마이페이지"/>
 
 </menu>

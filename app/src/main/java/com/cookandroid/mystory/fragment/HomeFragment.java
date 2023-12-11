@@ -14,10 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.cookandroid.mystory.Adapter.GridAdapter;
 import com.cookandroid.mystory.ItemActivity;
+import com.cookandroid.mystory.ProduceActivity;
 import com.cookandroid.mystory.R;
 import com.cookandroid.mystory.Adapter.SliderAdapter;
 import com.cookandroid.mystory.SliderItem;
@@ -30,6 +32,7 @@ public class HomeFragment extends Fragment {
     private ViewPager2 viewPager2;
     private Handler sliderHendler = new Handler();
     private GridView gridView;
+    Button button2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +42,7 @@ public class HomeFragment extends Fragment {
 
         viewPager2 = view.findViewById(R.id.viewPageImageSlider);
         gridView = view.findViewById(R.id.gridview);
+        button2 = view.findViewById(R.id.button2);
 
         sliderview();
         itemview();
@@ -53,6 +57,16 @@ public class HomeFragment extends Fragment {
                 super.onPageSelected(position);
                 sliderHendler.removeCallbacks(sliderRunnable);
                 sliderHendler.postDelayed(sliderRunnable, 3000);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getActivity(), ProduceActivity.class);
+                startActivity(intent);
+
             }
         });
 
@@ -98,11 +112,10 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private void itemview() {
+    public void itemview() {
 
-        String[] numberWord = {"one","two","three","four","five","six","one","two","three","four","five","six","one","two","three","four","five","six"};
+        String[] numberWord = {"one","two","three","four","five","six","one","two","three","four","five","six"};
         int[] numberImage = {R.drawable.image,R.drawable.image2,R.drawable.image3,
-                R.drawable.image4,R.drawable.image5,R.drawable.image6,R.drawable.image,R.drawable.image2,R.drawable.image3,
                 R.drawable.image4,R.drawable.image5,R.drawable.image6,R.drawable.image,R.drawable.image2,R.drawable.image3,
                 R.drawable.image4,R.drawable.image5,R.drawable.image6};
         GridAdapter gridAdapter = new GridAdapter(getActivity(), numberWord, numberImage);

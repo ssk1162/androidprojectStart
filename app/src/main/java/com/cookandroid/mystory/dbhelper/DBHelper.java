@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create Table users(username TEXT primary key, password TEXT, nickname TEXT, emailEdit TEXT)");
 
-//        db.execSQL("create Table imageitem(imagenum integer primary key, imagename TEXT, imagepay integer, imagedetail TEXT)");
+//        db.execSQL("create Table goodsitem(goodsname TEXT primary key, imgname TEXT, goodspay TEXT, goodsdetail TEXT)");
 
     }
 
@@ -52,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // 아이템 등록
-//    public Boolean imageinsert(String imagename, int imagepay, String imagedetail) {
+//    public Boolean imageinsert(String goodsname, String imgname, String goodspay, String goodsdetail) {
 //
 //        SQLiteDatabase db = this.getWritableDatabase();
 //        ContentValues contentValues = new ContentValues();

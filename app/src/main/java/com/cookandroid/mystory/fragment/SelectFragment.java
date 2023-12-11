@@ -26,6 +26,7 @@ public class SelectFragment extends Fragment {
         searchView = view.findViewById(R.id.searchView);
         listView = view.findViewById(R.id.item_listview);
 
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
