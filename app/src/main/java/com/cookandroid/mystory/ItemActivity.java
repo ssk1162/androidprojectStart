@@ -1,6 +1,7 @@
 package com.cookandroid.mystory;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,8 +21,8 @@ public class ItemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityItemBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_item);
+        binding.setItem(this);
 
         binding.toolBar.setTitle("상세페이지");
         setSupportActionBar(binding.toolBar);

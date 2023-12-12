@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.cookandroid.mystory.databinding.FindActivityBinding;
-import com.cookandroid.mystory.dbhelper.DBHelper;
+import com.cookandroid.mystory.model.DBHelper;
 
 public class FindidpwActivity extends AppCompatActivity {
 
@@ -18,10 +19,10 @@ public class FindidpwActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = FindActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        setTitle("아이디 / 비밀번호 찾기");
+        binding = DataBindingUtil.setContentView(this, R.layout.find_activity);
+        binding.setFind(this);
 
+        setTitle("아이디 / 비밀번호 찾기");
         db = new DBHelper(this);
 
         binding.namebtn.setOnClickListener(new View.OnClickListener() {

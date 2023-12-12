@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "737464808632",
+    "firebase_url": "https://project01-a16b1-default-rtdb.firebaseio.com",
+    "project_id": "project01-a16b1",
+    "storage_bucket": "project01-a16b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737464808632:android:45038df892a4bef342304d",
+        "android_client_info": {
+          "package_name": "com.cookandroid.mystory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737464808632-108lftvedu647ap7ku5md4oacv27ki5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmeuJnYxQJQiRiAmoQCQddw0BeuUiK8Xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737464808632-108lftvedu647ap7ku5md4oacv27ki5f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737464808632:android:ed6e57d513b5f4de42304d",
+        "android_client_info": {
+          "package_name": "com.mega.project01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737464808632-108lftvedu647ap7ku5md4oacv27ki5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmeuJnYxQJQiRiAmoQCQddw0BeuUiK8Xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737464808632-108lftvedu647ap7ku5md4oacv27ki5f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737464808632:android:39ed5450b4e71e2a42304d",
+        "android_client_info": {
+          "package_name": "com.project.nice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737464808632-108lftvedu647ap7ku5md4oacv27ki5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmeuJnYxQJQiRiAmoQCQddw0BeuUiK8Xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737464808632-108lftvedu647ap7ku5md4oacv27ki5f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

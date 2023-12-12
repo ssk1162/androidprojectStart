@@ -1,4 +1,4 @@
-package com.cookandroid.mystory.dbhelper;
+package com.cookandroid.mystory.model;
 
 import android.content.ContentValues;
 import android.content.Context;

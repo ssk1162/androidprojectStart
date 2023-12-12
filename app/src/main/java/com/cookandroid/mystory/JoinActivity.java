@@ -6,9 +6,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.cookandroid.mystory.databinding.JoinActivityBinding;
-import com.cookandroid.mystory.dbhelper.DBHelper;
+import com.cookandroid.mystory.model.DBHelper;
 
 public class JoinActivity extends AppCompatActivity {
 
@@ -18,8 +19,9 @@ public class JoinActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = JoinActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        binding = DataBindingUtil.setContentView(this, R.layout.join_activity);
+        binding.setJoin(this);
+
         setTitle("회원가입");
 
         db = new DBHelper(this);
