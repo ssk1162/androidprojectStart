@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.cookandroid.mystory.databinding.LoginActivityBinding;
 import com.cookandroid.mystory.dbhelper.DBHelper;
@@ -21,8 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = LoginActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
+        binding.setViewModel(this);
         setTitle("로그인");
 
         db = new DBHelper(this);
