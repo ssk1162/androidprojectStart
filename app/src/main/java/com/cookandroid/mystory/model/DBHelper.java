@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create Table users(username TEXT primary key, password TEXT, nickname TEXT, emailEdit TEXT)");
 
-//        db.execSQL("create Table goodsitem(goodsname TEXT primary key, imgname TEXT, goodspay TEXT, goodsdetail TEXT)");
+//        db.execSQL("create Table goodsitem(goodsname TEXT primary key, imgblob blob, goodspay TEXT, goodsdetail TEXT)");
 
     }
 

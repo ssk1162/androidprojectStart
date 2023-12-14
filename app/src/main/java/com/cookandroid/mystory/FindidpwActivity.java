@@ -25,10 +25,7 @@ public class FindidpwActivity extends AppCompatActivity {
         setTitle("아이디 / 비밀번호 찾기");
         db = new DBHelper(this);
 
-        binding.namebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        binding.namebtn.setOnClickListener(v -> {
                 String user = binding.username2.getText().toString();
                 UserBean userBean = db.selectAll(user);
 
@@ -44,19 +41,12 @@ public class FindidpwActivity extends AppCompatActivity {
                     binding.pwview.setText(name + "님 비밀번호는 " + pass + "입니다");
 
                 }
-
-            }
         });
 
-        binding.btnBack2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        binding.btnBack2.setOnClickListener(v -> {
                 Intent intent = new Intent(FindidpwActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
-
-            }
         });
 
     }

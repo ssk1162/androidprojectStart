@@ -31,27 +31,18 @@ public class LoginActivity extends AppCompatActivity {
         preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
 
         // 회원가입
-        binding.btnJoin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        binding.btnJoin.setOnClickListener(v -> {
                 Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
                 startActivity(intent);
                 finish();
-
-            }
         });
 
         // 비밀번호 찾기
-        binding.idpwbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        binding.idpwbtn.setOnClickListener(v -> {
                 Intent intent = new Intent(LoginActivity.this, FindidpwActivity.class);
                 startActivity(intent);
                 finish();
 
-            }
         });
 
     }

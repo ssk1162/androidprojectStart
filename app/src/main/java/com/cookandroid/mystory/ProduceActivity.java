@@ -70,7 +70,7 @@ public class ProduceActivity extends AppCompatActivity {
 
                         Bundle bundle = result.getData().getExtras();
                         bitmap = (Bitmap) bundle.get("data");
-                        binding.imgname.setImageBitmap(bitmap);
+                        binding.imgblob.setImageBitmap(bitmap);
 
                     }
                 }
