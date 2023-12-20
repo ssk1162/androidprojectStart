@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.cookandroid.mystory.LoginActivity;
 import com.cookandroid.mystory.R;
 import com.cookandroid.mystory.databinding.FragmentUserBinding;
 

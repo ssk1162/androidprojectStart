@@ -2,13 +2,11 @@ package com.cookandroid.mystory;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.cookandroid.mystory.databinding.FindActivityBinding;
-import com.cookandroid.mystory.model.DBHelper;
 
 public class FindidpwActivity extends AppCompatActivity {
 
