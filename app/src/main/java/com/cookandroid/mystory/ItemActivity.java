@@ -1,13 +1,13 @@
 package com.cookandroid.mystory;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.cookandroid.mystory.databinding.ActivityItemBinding;
 

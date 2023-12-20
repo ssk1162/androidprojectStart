@@ -10,8 +10,9 @@ import com.cookandroid.mystory.UserBean;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "Login.db";
-
+    // context 데이터베이스를 생성할 때 필요한 컨텍스트 객체
+    // null 기본적으로 사용되는 커서 팩토리 null을 사용하면 기본 커서 팩토리를 사용
+    // version 데이터베이스의 버전 스키마를 변경할 때 업그레이드에 사용
     public DBHelper(Context context) {
         super(context, "Login.db", null, 1);
     }

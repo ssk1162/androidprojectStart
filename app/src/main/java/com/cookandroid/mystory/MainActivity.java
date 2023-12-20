@@ -1,11 +1,11 @@
 package com.cookandroid.mystory;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
-import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.cookandroid.mystory.databinding.ActivityMainBinding;
 import com.cookandroid.mystory.fragment.HomeFragment;
