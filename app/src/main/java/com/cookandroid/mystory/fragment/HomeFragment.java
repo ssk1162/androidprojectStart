@@ -17,7 +17,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 
+import com.cookandroid.mystory.Adapter.GridAdapter;
+import com.cookandroid.mystory.Adapter.SliderAdapter;
+import com.cookandroid.mystory.ItemActivity;
+import com.cookandroid.mystory.ProduceActivity;
 import com.cookandroid.mystory.R;
+import com.cookandroid.mystory.SliderItem;
 
 import java.util.ArrayList;
 import java.util.List;

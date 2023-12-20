@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.cookandroid.mystory.databinding.LoginActivityBinding;
+import com.cookandroid.mystory.model.DBHelper;
 
 public class LoginActivity extends AppCompatActivity {
 

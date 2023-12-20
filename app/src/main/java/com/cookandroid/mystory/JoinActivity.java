@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.cookandroid.mystory.databinding.JoinActivityBinding;
+import com.cookandroid.mystory.model.DBHelper;
 
 public class JoinActivity extends AppCompatActivity {
 
